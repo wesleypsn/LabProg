@@ -1,18 +1,35 @@
+package principal;
+
 import java.util.Scanner;
 
+/*
+ * Aluno 01: Ivanildo Simplício da Silva Filho
+ * Aluno 02: Fernanda Eduarda de Medeiros Silva
+ * Aluno 03: Wesley Porto Santos
+ */
+
 public class Lab1 {
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int qtosNumeros = 5;
-		int num;
+		int valores[] = new int[3];
+		int min, max;
 		
-		int maior =  Integer.MIN_VALUE;
-		int menor = Integer.MAX_VALUE;
-		
-		for (int i = 0; i < qtosNumeros; i++) {
-			System.out.print( "Digite o numero: ");
-			num = sc.nextInt();
-			System.out.println(num);
+		for(int i = 0; i < valores.length; i++) {
+			System.out.printf("Insira o valor %d: ", i+1);
+			valores[i] = sc.nextInt();
 		}
+		
+		min = max = valores[0];
+		for(int i = 1; i < valores.length; i++) {
+			if(valores[i] > max) {
+				max = valores[i];
+			}else if(valores[i] < min){
+				min = valores[i];
+			}
+		}
+		
+		System.out.println("Menor valor: "+min);
+		System.out.println("Maior valor: "+max);
 	}
 }
