@@ -73,12 +73,12 @@ public abstract class Contribuinte {
 	 * Metodo estatico que calcula a media dos bens dos contribuintes de uma categoria e acrecenta 50% ao valor medio.
 	 * @return A media dos bens dos contribuintes acrescido de 50% desse valor.
 	 */
-	public static double calculaMediaDosBensDeContribuintes(List<Medico> listaMedicos) {
+	public static double calculaMediaDosBensDeContribuintes(List<?> lista) {
 		int somaDosBens=0;
-		for(int i = 0; i < listaMedicos.size(); i++) {
-			somaDosBens += listaMedicos.get(i).getValorDosBens();
+		for(int i = 0; i < lista.size(); i++) {
+			somaDosBens += ((Contribuinte) lista.get(i)).getValorDosBens();
 		}
-		double mediaDosBens = somaDosBens/listaMedicos.size();
+		double mediaDosBens = somaDosBens/lista.size();
 		return mediaDosBens *= 1.5;
 	}
 
